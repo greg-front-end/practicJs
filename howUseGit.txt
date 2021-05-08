@@ -1,0 +1,19 @@
+First time when install git :
+open terminl(Rosseta if mac m1) {
+    1) export PATH=/usr/local/bin:$PATH
+    2) git config --global user.name "Your Name"
+    3) git config --global user.email "your_email@whatever.com"
+    4) brew install git
+}
+
+////////////////////////////////////////
+
+After when use git in project:
+
+1) git init
+2) git config --local user.name "Name"
+3) git config --local user.email mail@mail.com
+4) git add . (add all files or can use git add fileName.js) 
+5) git commit -a -m"Some coments" // add coments for commit
+6) git remote add origin https://github.com/profile/repositoryName
+7) git push // push the repository
