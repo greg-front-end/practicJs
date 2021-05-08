@@ -24,3 +24,11 @@ If need clone repository another computer:
 
 1) open terminal in project
 2) git clone url//github/profile/project folderName(NEED CREAT) 
+
+
+/////////////
+
+If we want add changed in other local folder:
+
+1) git pull of git fetch
+
