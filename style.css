@@ -1,0 +1,44 @@
+.arrays {
+    text-align: center;
+    margin: 0 auto;
+    font-weight: bold;
+}
+.good {
+    border-color: aqua;
+}
+.push {
+    outline: none;
+    border: none;
+    color: #fff;
+    border: 1px solid #000;
+    background-color: #000;
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+}
+.push:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+.pop {
+    outline: none;
+    border: none;
+    color: #fff;
+    border: 1px solid #000;
+    background-color: #000;
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+}
+
+.pop:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+.message {
+    transition: all 0.5s ease-out;
+}
