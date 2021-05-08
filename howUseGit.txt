@@ -17,3 +17,10 @@ After when use git in project:
 5) git commit -a -m"Some coments" // add coments for commit
 6) git remote add origin https://github.com/profile/repositoryName
 7) git push // push the repository
+
+/////////////
+
+If need clone repository another computer:
+
+1) open terminal in project
+2) git clone url//github/profile/project folderName(NEED CREAT) 
