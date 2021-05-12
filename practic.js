@@ -1,4 +1,4 @@
-// using while loop method
+// todo using while loop method
 /*
 // count movies which user looked
 let numbersOfFilms = '';
@@ -50,9 +50,10 @@ if (personalMovieDb.count >= 10) {
 }   else {console.log('Somthing going wrong!')}
 */
 
+////////////////////////////////////////////////////////
 
-// using for loop method
-/*
+//todo using do_while loop method
+/* 
 // count movies which user looked
 let numbersOfFilms = '';
 // last movie which user looked
@@ -75,9 +76,9 @@ do {
     whatRatingWillYouGive = prompt('What rating will you give?');
 } while(
     // look the answers from asks if they doesn't fit our questions we ask again
-    !isFinite(numbersOfFilms) || !isFinite(whatRatingWillYouGive)
+    (!isFinite(numbersOfFilms) || !isFinite(whatRatingWillYouGive)
       || numbersOfFilms === null || lastSeeMovie === null || whatRatingWillYouGive === null 
-      || numbersOfFilms === '' || lastSeeMovie === '' || whatRatingWillYouGive === ''
+      || numbersOfFilms === '' || lastSeeMovie === '' || whatRatingWillYouGive === '')
 
 );
 // add value from numbersOfFilms to personalMovieDb.count object
@@ -86,8 +87,9 @@ personalMovieDb.count = numbersOfFilms;
 personalMovieDb.movies[lastSeeMovie] = whatRatingWillYouGive;
 console.log(personalMovieDb);
 */
+//////////////////////////////////////
 
-// did the task from for loop method
+//todo did the task from for loop method
 /*
 // create variebles for ask user about how much he did looked movies
 let numbersOfFilms = '';
@@ -99,7 +101,7 @@ const personalMovieDb = {
     genres: [],
     privat: false
 };
-// we iterate the answers if they wrong we ask again
+//we iterate the answers if they wrong we ask again
 for (let i = 0; i < 2; i++) {
     // create variebles for ask user about last movie and rating the movie
     numbersOfFilms = prompt('How much movies did you see?');
@@ -109,7 +111,8 @@ for (let i = 0; i < 2; i++) {
     if (
         // if the numbersOfFilms and whatRatingWillYouGive are number we go next
         isFinite(numbersOfFilms) && isFinite(whatRatingWillYouGive)
-        // if the numbersOfFilms, lastSeeMovie, whatRatingWillYouGive are not a null(user dont click censel or esc) we go next
+        // if the numbersOfFilms, lastSeeMovie, whatRatingWillYouGive are not a null
+        //(user dont click censel or esc) we go next
         && numbersOfFilms !== null && lastSeeMovie !== null && whatRatingWillYouGive !== null 
         // if the user is not enter empty value we go next
         && numbersOfFilms !== '' && lastSeeMovie !== '' && whatRatingWillYouGive !== ''
@@ -125,3 +128,4 @@ for (let i = 0; i < 2; i++) {
 }
 console.log(personalMovieDb)
 */
+/////////////////////////////////////////
