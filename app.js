@@ -38,3 +38,5 @@ document.querySelector('.pop').onclick = () => {
     console.log(`The item of number id ${goods} was delete`);
     console.log(car);
 };
+
+
