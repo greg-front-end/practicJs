@@ -15,15 +15,19 @@ while(true) {
     // ask user what rating will he gives
     whatRatingWillYouGive = prompt('What rating will you give?','');
         // check numbersOfFilms is number or not
-    if ((isFinite(numbersOfFilms))
+   if (isFinite(numbersOfFilms)
         // check the variebels is not an empty 
-        &&(lastSeeMovie, numbersOfFilms, whatRatingWillYouGive) !== '' 
+        &&lastSeeMovie !== ''
+        && numbersOfFilms !== ''
+        && whatRatingWillYouGive !== '' 
         // check the variebels is not a null
-        && (lastSeeMovie, numbersOfFilms, whatRatingWillYouGive) !== null
+        && (lastSeeMovie !== null
+        && numbersOfFilms !== null
+        && whatRatingWillYouGive !== null
         //check whatRatingWillYouGive is number
         && isFinite(whatRatingWillYouGive)
         // check lastSeeMovie.length more than 50 characters
-        && !(lastSeeMovie.length > 50) ) break;
+        && lastSeeMovie.length < 50))break;
 }
 
 // create DB
@@ -45,32 +49,79 @@ if (personalMovieDb.count >= 10) {
     console.log('You have bad expression!');
 }   else {console.log('Somthing going wrong!')}
 */
+
+
 // using for loop method
+/*
+// count movies which user looked
+let numbersOfFilms = '';
+// last movie which user looked
+let lastSeeMovie = '';
+// rating which user gives the movie
+let whatRatingWillYouGive = '';
 
 // create DB
 const personalMovieDb = {
-    count,
+  count: numbersOfFilms,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false
+};
+do {
+    // ask user about movies and save it on variebels
+    numbersOfFilms = prompt('How much movies did you see?');
+    lastSeeMovie = prompt('What last movie did you see?');
+    whatRatingWillYouGive = prompt('What rating will you give?');
+} while(
+    // look the answers from asks if they doesn't fit our questions we ask again
+    !isFinite(numbersOfFilms) || !isFinite(whatRatingWillYouGive)
+      || numbersOfFilms === null || lastSeeMovie === null || whatRatingWillYouGive === null 
+      || numbersOfFilms === '' || lastSeeMovie === '' || whatRatingWillYouGive === ''
+
+);
+// add value from numbersOfFilms to personalMovieDb.count object
+personalMovieDb.count = numbersOfFilms;
+// add value from lastSeeMovie and whatRatingWillYouGive to personalMovieDb.movies object
+personalMovieDb.movies[lastSeeMovie] = whatRatingWillYouGive;
+console.log(personalMovieDb);
+*/
+
+// did the task from for loop method
+/*
+// create variebles for ask user about how much he did looked movies
+let numbersOfFilms = '';
+// create DB
+const personalMovieDb = {
+    count: numbersOfFilms,
     movies: {},
     actors: {},
     genres: [],
     privat: false
 };
-
+// we iterate the answers if they wrong we ask again
 for (let i = 0; i < 2; i++) {
-    const numbersOfFilms = prompt('How much movies did you look?');
-    const lastSeeMovie = prompt('Which last movie did you look?');
-    const whatRatingWillYouGive = prompt('What rating will did you look?');
+    // create variebles for ask user about last movie and rating the movie
+    numbersOfFilms = prompt('How much movies did you see?');
+    let lastSeeMovie = prompt('What last movie did you see?');
+    let whatRatingWillYouGive = prompt('What rating will you give?');
 
-    if ((isFinite(numbersOfFilms))
-    // check the variebels is not an empty 
-    &&(lastSeeMovie, numbersOfFilms, whatRatingWillYouGive) !== '' 
-    // check the variebels is not a null
-    && (lastSeeMovie, numbersOfFilms, whatRatingWillYouGive) !== null
-    //check whatRatingWillYouGive is number
-    && isFinite(whatRatingWillYouGive)
-    // check lastSeeMovie.length more than 50 characters
-    && !(lastSeeMovie.length > 50) ) {
-        personalMovieDb.count = numbersOfFilms;
+    if (
+        // if the numbersOfFilms and whatRatingWillYouGive are number we go next
+        isFinite(numbersOfFilms) && isFinite(whatRatingWillYouGive)
+        // if the numbersOfFilms, lastSeeMovie, whatRatingWillYouGive are not a null(user dont click censel or esc) we go next
+        && numbersOfFilms !== null && lastSeeMovie !== null && whatRatingWillYouGive !== null 
+        // if the user is not enter empty value we go next
+        && numbersOfFilms !== '' && lastSeeMovie !== '' && whatRatingWillYouGive !== ''
+    ) {
+        // if all true we add the values on object
+        personalMovieDb.count = +numbersOfFilms;
         personalMovieDb.movies[lastSeeMovie] = whatRatingWillYouGive;
-    } else {i--;}
+    } else {
+        // if false we go back and ask again user about movies
+        alert('You give wrong answer, please try again')
+        i--;
+    }
 }
+console.log(personalMovieDb)
+*/
