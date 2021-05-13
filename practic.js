@@ -131,51 +131,77 @@ console.log(personalMovieDb)
 */
 // ?end loops
 /////////////////////////////////////////
-// create variebles for ask user about how much he did looked movies
-let numbersOfFilms;
-//? functions
-function start() {
-    numbersOfFilms = prompt('How much movies did you see?');
-    while(numbersOfFilms === '' || numbersOfFilms === null || isNaN(numbersOfFilms)) {
-        numbersOfFilms = prompt('How much movies did you see?');
-    }
-}
-start();
 
+//todo usnig functions
 // create DB
 const personalMovieDb = {
-    count: numbersOfFilms,
+    count: 0,
     movies: {},
     actors: {},
     genres: [],
-    privat: false
-};
-
-// create function for iterate questions
-function rememberMyFilms() {
-    //we iterate the answers if they wrong we ask again
-for (let i = 0; i < 2; i++) {
-    // create variebles for ask user about last movie and rating the movie
-    numbersOfFilms = prompt('How much movies did you see?');
-    let lastSeeMovie = prompt('What last movie did you see?');
-    let whatRatingWillYouGive = prompt('What rating will you give?');
-
-    if (
-        // if the numbersOfFilms and whatRatingWillYouGive are number we go next
-        isFinite(numbersOfFilms) && isFinite(whatRatingWillYouGive)
-        // if the numbersOfFilms, lastSeeMovie, whatRatingWillYouGive are not a null
-        //(user dont click censel or esc) we go next
-        && numbersOfFilms !== null && lastSeeMovie !== null && whatRatingWillYouGive !== null 
-        // if the user is not enter empty value we go next
-        && numbersOfFilms !== '' && lastSeeMovie !== '' && whatRatingWillYouGive !== ''
-    ) {
-        // if all true we add the values on object
-        personalMovieDb.count = +numbersOfFilms;
-        personalMovieDb.movies[lastSeeMovie] = whatRatingWillYouGive;
-    } else {
-        // if false we go back and ask again user about movies
-        alert('You give wrong answer, please try again')
-        i--;
+    privat: false,
+    // create methed for ask user about count movies
+    start: function() {
+        this.count = +prompt('How much movies did you see?');
+        while(this.count === '' || this.count === null || isNaN(this.count)) {
+            this.count = +prompt('How much movies did you see?');
+        }
+    },
+    // create method for iterate questions
+    rememberMyFilms: function() {
+        //we iterate the answers if they wrong we ask again
+        for (let i = 0; i < 2; i++) {
+        // create variebles for ask user about last movie and rating the movie
+        let lastSeeMovie = prompt('What last movie did you see?');
+        let whatRatingWillYouGive = prompt('What rating will you give?');
+        
+        if (
+            // if the whatRatingWillYouGive are number we go next
+            isFinite(whatRatingWillYouGive)
+            // if the numbersOfFilms, lastSeeMovie, whatRatingWillYouGive are not a null
+            //(user dont click censel or esc) we go next
+            && lastSeeMovie !== null && whatRatingWillYouGive !== null 
+            // if the user is not enter empty value we go next
+            && lastSeeMovie !== '' && whatRatingWillYouGive !== ''
+        ) {
+            // if all true we add the values on object
+            personalMovieDb.movies[lastSeeMovie] = whatRatingWillYouGive;
+        } else {
+            // if false we go back and ask again user about movies
+            alert('You give wrong answer, please try again');
+            i--;
+        }
+    }
+},
+    // create method for detect person level about movies
+    detectPersonalLevel: function () {
+    // check if count movie more or equels 10 show the message
+        if (personalMovieDb.count >= 10) {
+            console.log('You have good expression!');
+        } else if (personalMovieDb.count < 10) {
+            console.log('You have bad expression!');
+        }   else {console.log('Somthing going wrong!');}
+    },
+    // create method for check privat DB of person if false we show the DB
+    showMyDB: function(obj) {
+        if (obj['privat'] === false) {
+        console.log(obj);
+        }
+    },
+// create method for ask user 3 times about genere and push it in generes of DB
+    writeYourGeneres: function() {
+    for (let i = 1; i <= 3; i++) {
+        const yourGeneres = prompt(`Write your favorite generes of movie under number: ${i}?`);
+        
+        if (yourGeneres !== '' && yourGeneres !== null) {
+           personalMovieDb.genres[i - 1] = yourGeneres;
+        } else {
+            alert('You give wrong answer, please try again');
+            i--;
+        }
     }
 }
-}
+
+};
+
+
