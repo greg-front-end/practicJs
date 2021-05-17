@@ -140,6 +140,14 @@ const personalMovieDb = {
     actors: {},
     genres: [],
     privat: false,
+    // create method toggle for privat 
+    toggleVisibleMyDB: function() {
+        if (this.privat) {
+            this.privat = false;
+        } else {
+            this.privat = true;
+        }
+    },
     // create methed for ask user about count movies
     start: function() {
         this.count = +prompt('How much movies did you see?');
@@ -183,25 +191,33 @@ const personalMovieDb = {
         }   else {console.log('Somthing going wrong!');}
     },
     // create method for check privat DB of person if false we show the DB
-    showMyDB: function(obj) {
-        if (obj['privat'] === false) {
-        console.log(obj);
+    showMyDB: function() {
+        if (!this.privat) {
+        console.log(personalMovieDb);
         }
     },
 // create method for ask user 3 times about genere and push it in generes of DB
     writeYourGeneres: function() {
-    for (let i = 1; i <= 3; i++) {
-        const yourGeneres = prompt(`Write your favorite generes of movie under number: ${i}?`);
+    for (let i = 1; i < 2; i++) {
+        const yourGeneres = prompt(`Write your favorite generes with commans?`);
         
         if (yourGeneres !== '' && yourGeneres !== null) {
-           personalMovieDb.genres[i - 1] = yourGeneres;
+           personalMovieDb.genres = yourGeneres.toLowerCase().split(', ');
+           personalMovieDb.genres.sort();
         } else {
             alert('You give wrong answer, please try again');
             i--;
         }
+        yourGeneres.forEach((item, i) => {
+            console.log(`Lovely genere ${i + 1} is -> ${item}`);
+        });
     }
+
 }
 
 };
+
+//////////////////////////////////////
+
 
 
