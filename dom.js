@@ -63,7 +63,12 @@ newDiv.textContent = 'New Hello!';
 
 // add h3 before newBtn
 newBtn1.insertAdjacentElement('beforebegin', '<h3>Learn JS</h3>'); 
-
+/*?
+'beforebegin': перед самим элементом targetElement.
+'afterbegin': внутри элемента targetElement, перед его первым потомком.
+'beforeend': внутри элемента targetElement, после его последнего потомка.
+'afterend': после самого элемента targetElement.
+*/
 
 
 
